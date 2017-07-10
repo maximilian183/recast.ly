@@ -1,7 +1,14 @@
 var VideoPlayer = (props) => {
-  { var videos = 'https://www.youtube.com/embed/' + props.video.id.videoId;
-    var title = props.video.snippet.title;
-    var description = props.video.snippet.description; }
+  {
+    console.log(props);
+    if (props.video !== undefined) {
+      if (props.video.id !== undefined) {
+        var videos = 'https://www.youtube.com/embed/' + props.video.id.videoId;
+        var title = props.video.snippet.title;
+        var description = props.video.snippet.description;
+      }
+    }
+  }
 
   return (
     <div className="video-player">

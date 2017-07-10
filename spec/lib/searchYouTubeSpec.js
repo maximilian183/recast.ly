@@ -53,6 +53,7 @@ describe('searchYouTube', function() {
     searchYouTube({}, () => {});
 
     expect(requests[0].method).to.equal('GET');
+    console.log(requests[0].url);
   });
 
   it('should accept `key`, `query`, and `max` options and send them in GET request', function() {

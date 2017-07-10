@@ -1,14 +1,19 @@
 var VideoListEntry = (props) => {
   { var video = props.video.snippet;
-    var thumbNail = props.video.snippet.thumbnails.default.url; }
-  return(
+    if (video !== undefined) {
+      var thumbNail = video.thumbnails.default.url;
+      var title = video.title;
+      var description = video.description;
+    }
+  }
+  return (
     <div className="video-list-entry">
       <div className="media-left media-middle">
         <img className="media-object" src={thumbNail} alt="" />
       </div>
       <div className="media-body">
-        <div className="video-list-entry-title">{video.title}</div>
-        <div className="video-list-entry-detail">{video.description}</div>
+        <div className="video-list-entry-title">{title}</div>
+        <div className="video-list-entry-detail">{description}</div>
       </div>
     </div>
   );

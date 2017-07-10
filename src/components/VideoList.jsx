@@ -1,15 +1,22 @@
 var VideoList = (props) => {
-  { var videos = props.videos; }
-  return (
-    <div className="video-list media">
-      {
-        videos.map(function(info) {
-          // console.log(info);
-          return <VideoListEntry todos={info} />;
-        })
-      }
-    </div>
-  );
+  if ( props.videos !== undefined) {
+    return (
+      <div className="video-list media">
+        {
+          props.videos.map(function(key) {
+            return <VideoListEntry video={props} key={key}/>;
+          })
+        }
+      </div>
+    );
+  } else {
+    return (
+      <div className="video-list media">
+        <VideoListEntry video={props}/>
+      </div>
+    );
+  }
+
 };
 
 // PropTypes tell other developers what `props` a component expects
