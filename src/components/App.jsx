@@ -2,27 +2,34 @@ class App extends React.Component {
   constructor (props) {
     super(props);
     this.state = {
-      search: searchYouTube(
-        {
-          key: 'AIzaSyD4_z5xrVmMjhk9yTeCx2OZRSfPjb2RzZA',
-          max: 10,
-          query: 'cats',
-        }, function() {
-        return;
-      }),
+      options:{
+        key: 'AIzaSyD4_z5xrVmMjhk9yTeCx2OZRSfPjb2RzZA',
+        max: 10,
+        query: 'cats',
+        part: 'snippet'
+      },
+      results: null,
+      search: () => {
+        return searchYouTube( this.options, (results) => {
+        this.setState('results', results);
+        return results;
+        })
+      },
     };
   }
   render() {
-    this.state.search;
+    // console.log('Results are ', this.state.results);
+    window.searchYouTube()
+    this.state.search();
     //console.log(JSON.stringify(this.props));
     return (
       <div>
         <Nav />
         <div className="col-md-7">
-          <VideoPlayer video={this.props.searchYoutube}/>
+          <VideoPlayer/>
         </div>
         <div className="col-md-5">
-          <VideoList videos={this.props.searchYoutube}/>
+          <VideoList/>
         </div>
       </div>
     );

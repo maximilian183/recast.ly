@@ -1,5 +1,6 @@
 var VideoList = (props) => {
-  if ( props.videos !== undefined) {
+  // console.log(props);
+  if (props !== undefined && props.videos !== undefined) {
     return (
       <div className="video-list media">
         {

@@ -1,6 +1,5 @@
 var VideoPlayer = (props) => {
   {
-    console.log(props);
     if (props.video !== undefined) {
       if (props.video.id !== undefined) {
         var videos = 'https://www.youtube.com/embed/' + props.video.id.videoId;
