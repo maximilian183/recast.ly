@@ -19,9 +19,8 @@ var searchYouTube = (options, callback) => {
         console.log(request.responseText);
       }
     }).done( function (data) {
-        console.log('hi');
-      }
-    )
+      console.log('hi');
+    });
   }
 };
 

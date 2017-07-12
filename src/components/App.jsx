@@ -8,28 +8,33 @@ class App extends React.Component {
         query: 'cats',
         part: 'snippet'
       },
-      results: null,
+      currentVideo: window.exampleVideoData[0],
+      checkStateChanged: false,
+      results: window.exampleVideoData,
       search: () => {
         return searchYouTube( this.options, (results) => {
-        this.setState('results', results);
-        return results;
-        })
+          this.setState('results', results);
+          // return results;
+        });
       },
     };
+    this.updateVideo = this.updateVideo.bind(this);
   }
+
+  updateVideo(vid){
+    this.setState({currentVideo: vid});
+  }
+
+
   render() {
-    // console.log('Results are ', this.state.results);
-    window.searchYouTube()
-    this.state.search();
-    //console.log(JSON.stringify(this.props));
     return (
       <div>
         <Nav />
         <div className="col-md-7">
-          <VideoPlayer/>
+          <VideoPlayer video={this.state.currentVideo}/>
         </div>
         <div className="col-md-5">
-          <VideoList/>
+          <VideoList videos={this.state.results} updateVideo={this.updateVideo}/>
         </div>
       </div>
     );

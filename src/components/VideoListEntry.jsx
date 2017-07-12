@@ -12,7 +12,7 @@ var VideoListEntry = (props) => {
         <img className="media-object" src={thumbNail} alt="" />
       </div>
       <div className="media-body">
-        <div className="video-list-entry-title">{title}</div>
+        <div onClick={() => { props.updateVideo(props.video); } } className="video-list-entry-title">{title}</div>
         <div className="video-list-entry-detail">{description}</div>
       </div>
     </div>
