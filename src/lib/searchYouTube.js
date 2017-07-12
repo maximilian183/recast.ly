@@ -1,5 +1,6 @@
 var searchYouTube = (options, callback) => {
   // options has query, max, and key
+
   if (options !== undefined) {
     $.ajax({
       data: {
@@ -19,7 +20,7 @@ var searchYouTube = (options, callback) => {
         console.log(request.responseText);
       }
     }).done( function (data) {
-      console.log('hi');
+      callback(data);
     });
   }
 };

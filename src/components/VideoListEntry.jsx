@@ -6,6 +6,7 @@ var VideoListEntry = (props) => {
       var description = video.description;
     }
   }
+
   return (
     <div className="video-list-entry">
       <div className="media-left media-middle">
@@ -18,6 +19,7 @@ var VideoListEntry = (props) => {
     </div>
   );
 };
+
 
 // PropTypes tell other developers what `props` a component expects
 // Warnings will be shown in the console when the defined rules are violated

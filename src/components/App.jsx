@@ -19,17 +19,31 @@ class App extends React.Component {
       },
     };
     this.updateVideo = this.updateVideo.bind(this);
+    this.searchYouTube = this.searchYouTube.bind(this);
+    this.searchYouTube();
   }
 
   updateVideo(vid){
     this.setState({currentVideo: vid});
   }
 
+  searchYouTube(searchQuery){
+    var data = this.state.options;
+    if (searchQuery !== '' && searchQuery !== undefined ) {
+      data.query = searchQuery;
+    }
+    return searchYouTube( data, (query) => {
+      this.setState({results: query.items});
+      this.updateVideo(query.items[0]);
+    });
+  }
+
 
   render() {
+
     return (
       <div>
-        <Nav />
+        <Nav query={this.searchYouTube}/>
         <div className="col-md-7">
           <VideoPlayer video={this.state.currentVideo}/>
         </div>
